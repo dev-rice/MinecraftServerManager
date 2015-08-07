@@ -22,7 +22,7 @@ class MinecraftServer
     attr_reader :pid, :running, :pid_filepath
 
     def initialize()
-        @pid_filepath = "/home/minecrafter/ServerManager/current.pid"
+        @pid_filepath = "/Users/chrisrice/Code/MinecraftServerManager/current.pid"
     end
 
     def start_world(world)
@@ -69,28 +69,33 @@ class MinecraftServer
     end
 end
 
-apartment_world = MinecraftWorld.new(
-    name: "ApartmentWorld",
-    directory: "/home/minecrafter/Apartment_World",
-    version: '1.8')
+# apartment_world = MinecraftWorld.new(
+#     name: "ApartmentWorld",
+#     directory: "/home/minecrafter/Apartment_World",
+#     version: '1.8')
+#
+# first_world = MinecraftWorld.new(
+#     name: "FirstWorld",
+#     directory: "/home/minecrafter/FirstWorld",
+#     version: '1.8')
+#
+# hardcore_island = MinecraftWorld.new(
+#     name: "HardcoreIsland",
+#     directory: "/home/minecrafter/HardcoreIsland",
+#     version: '1.8.8')
+#
+# hardcore_world = MinecraftWorld.new(
+#     name: "HardcoreWorld",
+#     directory: "/home/minecrafter/HardcoreWorld",
+#     version: '1.8.8')
 
-first_world = MinecraftWorld.new(
-    name: "FirstWorld",
-    directory: "/home/minecrafter/FirstWorld",
-    version: '1.8')
-
-hardcore_island = MinecraftWorld.new(
-    name: "HardcoreIsland",
-    directory: "/home/minecrafter/HardcoreIsland",
-    version: '1.8.8')
-
-hardcore_world = MinecraftWorld.new(
-    name: "HardcoreWorld",
-    directory: "/home/minecrafter/HardcoreWorld",
-    version: '1.8.8')
+test_world = MinecraftWorld.new(
+    name: "test world",
+    directory: "/Users/chrisrice/MinecraftWorlds/testworld",
+    version: "1.8.8")
 
 server = MinecraftServer.new
-server.start_world(hardcore_island)
+server.start_world(test_world)
 
 # puts "The server will be up for 65 seconds"
 # sleep(60)
