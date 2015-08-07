@@ -9,7 +9,7 @@ class MinecraftWorld
 
     def start(server)
         enter_world_dir
-        server.start(directory, version)
+        server.start(version)
     end
 
     def enter_world_dir
@@ -29,11 +29,10 @@ class MinecraftServer
         world.start(self)
     end
 
-    def start(directory, version)
+    def start(version)
         remove_pid_file
 
         filename = get_server_filename(version)
-        filename = File.join(directory, filename)
         run_sever_command(filename)
 
         write_pid_file
@@ -60,6 +59,7 @@ class MinecraftServer
     def stop
         if running
             Process.kill(9, pid)
+            remove_pid_file
         end
         @running = false
     end
@@ -90,7 +90,7 @@ hardcore_world = MinecraftWorld.new(
     version: '1.8.8')
 
 server = MinecraftServer.new
-server.start_world(hardcore_world)
+server.start_world(hardcore_island)
 
 # puts "The server will be up for 65 seconds"
 # sleep(60)
